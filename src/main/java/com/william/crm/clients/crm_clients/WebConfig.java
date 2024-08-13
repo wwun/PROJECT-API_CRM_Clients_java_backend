@@ -19,6 +19,7 @@ public class WebConfig implements WebMvcConfigurer {
     private HandlerInterceptor loggerInterceptor;
     //
 
+    @SuppressWarnings("null")
     @Override
     public void addCorsMappings(CorsRegistry registry){
         registry.addMapping("/**")
@@ -28,6 +29,7 @@ public class WebConfig implements WebMvcConfigurer {
             .allowCredentials(true);
     }
 
+    @SuppressWarnings("null")
     @Override
     public void addInterceptors(InterceptorRegistry registry){
         registry.addInterceptor(loggerInterceptor).addPathPatterns("/clients");

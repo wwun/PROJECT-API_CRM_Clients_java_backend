@@ -3,8 +3,6 @@ package com.william.crm.clients.crm_clients.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.data.jpa.repository.Query;
-
 import com.william.crm.clients.crm_clients.entities.Client;
 
 public interface ClientService {

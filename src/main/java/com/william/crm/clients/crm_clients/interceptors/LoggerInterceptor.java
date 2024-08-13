@@ -11,13 +11,13 @@ import io.micrometer.common.lang.Nullable;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import com.william.crm.clients.crm_clients.controllers.HandlerExceptionController;;
 
 @Component("loggerInterceptor")
 public class LoggerInterceptor implements HandlerInterceptor{
 
     private static final Logger logger = LoggerFactory.getLogger(LoggerInterceptor.class);
 
+    @SuppressWarnings("null")
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler){
         HandlerMethod interceptedMethod = ((HandlerMethod)handler);
@@ -31,6 +31,7 @@ public class LoggerInterceptor implements HandlerInterceptor{
         return true;
     }
 
+    @SuppressWarnings("null")
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception{
         long endTime = System.currentTimeMillis();

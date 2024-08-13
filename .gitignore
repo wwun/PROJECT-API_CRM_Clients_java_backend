@@ -31,6 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-src/main/java/com/william/crm/clients/crm_clients/controllers/HandlerExceptionController.java
-src/main/java/com/william/crm/clients/crm_clients/dtos/HandlerExceptionDto.java

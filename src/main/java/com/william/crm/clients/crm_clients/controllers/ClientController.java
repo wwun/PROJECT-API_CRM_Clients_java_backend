@@ -38,7 +38,7 @@ public class ClientController {
     @PostMapping
     public ResponseEntity<?> createClient(@Valid @RequestBody Client client, BindingResult result){
         if(result.hasFieldErrors()){
-            System.out.println("Error: "+result.getAllErrors());
+            ResponseEntity.badRequest().body(result);
         }
         return ResponseEntity.status(HttpStatus.OK).body(clientService.createClient(client));
     }
@@ -52,7 +52,7 @@ public class ClientController {
     @PutMapping("{id}")
     public ResponseEntity<?> updateClient(@PathVariable String id, @Valid @RequestBody Client client, BindingResult result){
         if(result.hasFieldErrors()){
-            System.out.println("Error: "+result.getAllErrors());
+            ResponseEntity.badRequest().body(result);
         }
         return ResponseEntity.status(HttpStatus.OK).body(clientService.updateClient(id, client));
     }

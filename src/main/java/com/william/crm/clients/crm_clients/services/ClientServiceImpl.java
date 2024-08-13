@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.william.crm.clients.crm_clients.entities.Client;
+import com.william.crm.clients.crm_clients.exceptions.UserNotFoundException;
 import com.william.crm.clients.crm_clients.repositories.ClientRepository;
 
 
@@ -36,6 +37,7 @@ public class ClientServiceImpl implements ClientService{
     @Override
     @Transactional
     public void deleteClient(String id){
+        clientRepository.findById(id).orElseThrow(() -> new UserNotFoundException("Client couldn't be founded"));   //this is the only method I decided to handle exception
         clientRepository.deleteById(id);
     }
 
@@ -53,6 +55,10 @@ public class ClientServiceImpl implements ClientService{
     @Transactional(readOnly = true)
     public Optional<Client> findClientById(String id){
         return clientRepository.findById(id);
+        //handle exception
+        // Client client = clientRepository.findById(id)
+        //               .orElseThrow(() -> new UserNotFoundException("Client with id " + id + " not found"));
+        // return Optional.of(client);
     }
 
     @Override

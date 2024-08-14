@@ -44,7 +44,7 @@ public class LoggerInterceptor implements HandlerInterceptor{
         
         try{
             long startTime = (long)startTimeObj;
-            logger.info("Executing ["+methodName+"] time: "+(endTime-startTime)+" "+"ms");
+            logger.info("LoggerInterceptor: Executing ["+methodName+"] time: "+(endTime-startTime)+" "+"ms");
         }catch(NumberFormatException ex){
             throw ex;
         }
